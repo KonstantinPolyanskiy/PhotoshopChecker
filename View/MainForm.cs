@@ -1,4 +1,5 @@
-﻿using PhotoshopChecker.Service.Analyzer;
+﻿using MetadataExtractor.Formats.Exif;
+using PhotoshopChecker.Service.Analyzer;
 using PhotoshopChecker.Service.Analyzer.EXIF;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,15 @@ namespace PhotoshopChecker.View
 {
     public partial class MainForm : Form
     {
-        // Инициализация компонента 
-        ExifAnalyzer exifAnalyzer = new ExifAnalyzer();
+        private IImageReader reader;
+        private ExifAnalyzer exifAnalyzer;
 
         public MainForm()
         {
             InitializeComponent();
+
+            reader = new XMPReader();
+            exifAnalyzer = new ExifAnalyzer(reader);
         }
 
         private void SelectImageButton_Click(object sender, EventArgs e)
@@ -49,7 +53,7 @@ namespace PhotoshopChecker.View
 
                     default:
                         Helpers.SetFormattedResult("Неизвестный формат файла", ResultLabel, Helpers.ResultStatus.Warning);
-                        break;
+                        return;
                 }
 
                 // В зависимости от того, был ли фотошоп определяем результат для вывода

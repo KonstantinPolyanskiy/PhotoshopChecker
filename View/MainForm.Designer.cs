@@ -92,7 +92,7 @@
             Controls.Add(ExitButton);
             Controls.Add(SelectImageButton);
             Name = "MainForm";
-            Text = "MainForm";
+            Text = "Photoshop Checker";
             ((System.ComponentModel.ISupportInitialize)ImagePictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
