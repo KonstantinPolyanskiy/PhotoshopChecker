@@ -32,4 +32,4 @@
 	- директория View содержит логику отображения и визуальную часть решения.
 
 ## Демонстрация
-![]https://github.com/KonstantinPolyanskiy/PhotoshopChecker/blob/master/demonstration.gif
+![](https://github.com/KonstantinPolyanskiy/PhotoshopChecker/blob/master/demonstration.gif)
