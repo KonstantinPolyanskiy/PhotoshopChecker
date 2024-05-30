@@ -31,3 +31,5 @@
 	- директория Service/Analyzer содержить интерфейс анализа изображения, и его реализация на основе проверки XMP.
 	- директория View содержит логику отображения и визуальную часть решения.
 
+## Демонстрация
+![]https://github.com/KonstantinPolyanskiy/PhotoshopChecker/blob/master/demonstration.gif
