@@ -26,19 +26,18 @@ namespace PhotoshopChecker.View
         public static void SetFormattedResult(string rawResult, Label label, ResultStatus status)
         {
             rawResult = rawResult.ToLower();
+            label.Text = rawResult;
+
             switch (status)
             {
                 case ResultStatus.Good:
                     label.ForeColor = Color.Green;
-                    label.Text = rawResult;
                     break;
                 case ResultStatus.Warning:
                     label.ForeColor = Color.OrangeRed;
-                    label.Text = rawResult;
                     break;
                 case ResultStatus.Error:   
                     label.ForeColor = Color.Red;
-                    label.Text = rawResult;
                     break;
                 default:
                     label.ForeColor = Color.Red;
