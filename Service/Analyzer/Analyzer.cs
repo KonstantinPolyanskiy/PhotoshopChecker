@@ -17,4 +17,9 @@ namespace PhotoshopChecker.Service.Analyzer
     {
         public PhotoshopStatus AnalyzeImage(string pathToImage);
     }
+
+    public interface IImageReader
+    {
+        public IEnumerable<MetadataExtractor.Directory> ReadMetadata(string pathToImage);
+    }
 }
