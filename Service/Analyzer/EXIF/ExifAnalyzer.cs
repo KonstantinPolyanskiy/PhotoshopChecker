@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PhotoshopChecker.Service.Analyzer.EXIF
 {
-    public class TifExifAnalyzer : IImageAnalyzer
+    public class ExifAnalyzer : IImageAnalyzer
     {
         public PhotoshopStatus AnalyzeImage(string pathToImage)
         {
@@ -36,6 +36,7 @@ namespace PhotoshopChecker.Service.Analyzer.EXIF
             {
                 result = PhotoshopStatus.Original;
             }
+
 
             return result;
         }

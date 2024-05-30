@@ -14,10 +14,8 @@ namespace PhotoshopChecker.View
 {
     public partial class MainForm : Form
     {
-        JpegExifAnalyzer jpegExifAnalyzer = new JpegExifAnalyzer();
-        PngExifAnalyzer pngExifAnalyzer = new PngExifAnalyzer();
-        TifExifAnalyzer tifExifAnalyzer = new TifExifAnalyzer();
-
+        // Инициализация компонента 
+        ExifAnalyzer exifAnalyzer = new ExifAnalyzer();
 
         public MainForm()
         {
@@ -45,15 +43,10 @@ namespace PhotoshopChecker.View
                 // Определяем формат файле и на основе него вызываем соотвествующий метод
                 switch (Path.GetExtension(fileDialog.FileName).ToLower())
                 {
-                    case ".png":
-                        photoshopStatus = pngExifAnalyzer.AnalyzeImage(fileDialog.FileName);
+                    case ".png": case ".jpg": case ".tif":
+                        photoshopStatus = exifAnalyzer.AnalyzeImage(fileDialog.FileName);
                         break;
-                    case ".jpg":
-                        photoshopStatus = jpegExifAnalyzer.AnalyzeImage(fileDialog.FileName);
-                        break;
-                    case ".tif":
-                        photoshopStatus = tifExifAnalyzer.AnalyzeImage(fileDialog.FileName);
-                        break;
+
                     default:
                         Helpers.SetFormattedResult("Неизвестный формат файла", ResultLabel, Helpers.ResultStatus.Warning);
                         break;
